@@ -1,0 +1,52 @@
+.timer-container{
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+  min-width: 250px;
+  width: 50%;
+  padding: 10px;
+  max-width: 400px;
+  border: 9px outset rgb(2, 2, 51);
+ 
+  border-radius: 10px ;
+  background: linear-gradient(to bottom, rgb(0, 34, 255), rgb(23, 2, 67));
+}
+@font-face {
+  font-family: 'digital-7';
+  src: url('../fonts/digital-7.ttf');
+}
+.counter{
+  padding: 4px;
+  border-radius: 3px;
+  font-weight: 400;
+  background-color: rgb(11, 10, 8);
+  color:rgb(163, 172, 180);
+  font-family: 'digital-7', sans-serif;
+  margin: 10px;
+}
+.TimerLabel{
+  margin-top: 13px;
+  font: 1em sans-serif;
+  color: aliceblue;
+}
+.bttn{
+  display: flex;
+  margin-top: 13px;
+  margin-left: 10px;
+}
+button.pause{
+  background-color: rgb(64, 175, 179);
+}
+
+button.del{
+background-color: rgb(75, 11, 11);
+
+}
+button.btn{
+  font-size: unset;
+  color:azure;
+  width: 50%;
+  border-radius: 10px;
+  padding: 2px;
+  margin:2px; 
+}
