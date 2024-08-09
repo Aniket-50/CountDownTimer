@@ -75,7 +75,7 @@ return ()=>{
     <div className="bttn"></div>
     <button className="pause btn" onClick={HandleStart}>{IsStart?"Pause":"Resume"}</button>
     <button className="del btn" onClick={()=>DeleteTimer(id)}>Delete</button>
-    <audio src="../../public/Alarm-Clock-Short-chosic.com_.mp3"  ref={AudioRef}/>
+    <audio src="./Alarm-Clock-Short-chosic.com_.mp3"  ref={AudioRef}/>
   </div>
   
   </>)
