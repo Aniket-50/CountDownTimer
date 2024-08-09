@@ -3,9 +3,9 @@
   flex-direction: column;
   margin: 10px;
   min-width: 250px;
-  width: 50%;
+  width: 40%;
   padding: 10px;
-  max-width: 400px;
+  max-width: 330px;
   border: 9px outset rgb(2, 2, 51);
  
   border-radius: 10px ;
@@ -25,9 +25,11 @@
   margin: 10px;
 }
 .TimerLabel{
-  margin-top: 13px;
-  font: 1em sans-serif;
-  color: aliceblue;
+  margin-left: 13px;
+  margin-bottom: 13px;
+
+  font: 1.5em sans-serif;
+  color: rgb(255, 255, 255);
 }
 .bttn{
   display: flex;
@@ -45,7 +47,7 @@ background-color: rgb(75, 11, 11);
 button.btn{
   font-size: unset;
   color:azure;
-  width: 50%;
+  width: 35%;
   border-radius: 10px;
   padding: 2px;
   margin:2px; 

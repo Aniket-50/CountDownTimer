@@ -1,7 +1,7 @@
-import { useContext, useEffect, useState } from "react"
+import { useContext, useEffect, useRef,useState } from "react"
 import { TimerStore } from "../store/TimerStore";
 import '../CSS/Timer.css'
-import { Alert } from "bootstrap";
+import sound from '../../public/Alarm-Clock-Short-chosic.com_.mp3'
 const Timer =({id,days,hours,minutes,seconds,label})=>{
   const [IsStart ,setIsStart]=useState(true)
   const [Timerdays,setdays]=useState(days);
@@ -9,8 +9,10 @@ const Timer =({id,days,hours,minutes,seconds,label})=>{
   const [Timerminutes,setminutes]=useState(minutes);
   const [Timerseconds,setseconds]=useState(seconds);
   const [timerID,setTimerID]=useState(0)
+const AudioRef=useRef()
  function HandleStart(){
   setIsStart(!IsStart)
+
  }
  const RunTimer=(Timerdays,Timerhours,Timerminutes,Timerseconds)=>{
   if(Timerseconds>0){
@@ -32,9 +34,14 @@ const Timer =({id,days,hours,minutes,seconds,label})=>{
     sethours(23)
   }
   else {
-console.log("timer finished")
-   alert("finished")
+    
+    AudioRef.current.play()
    setIsStart(false)
+   setTimeout(() => {
+    AudioRef.current.pause()
+    DeleteTimer(id)
+
+   }, 4000);
   }
  }
  useEffect(()=>{
@@ -42,7 +49,6 @@ let interval;
 if(IsStart && Timerdays>=0){
 interval=setInterval(() => {
   RunTimer(Timerdays,Timerhours,Timerminutes,Timerseconds)
- // console.log(Timerdays,Timerhours,Timerminutes,Timerseconds)
 }, 1000);
 }
 else if(Timerdays<0) {
@@ -59,15 +65,17 @@ return ()=>{
   return( <>
   <div className="timer-container">
     <div className="time">
+    <div className="TimerLabel ">{label}</div>
       <span className="counter">{Timerdays}{"D"}</span>
       <span  className="counter">{Timerhours}{"H"}</span>
       <span  className="counter">{Timerminutes}{"M"}</span>
       <span className="counter"> {Timerseconds}{"S"}</span>
-    <div className="TimerLabel">{label}</div>
+    
     </div>
     <div className="bttn"></div>
     <button className="pause btn" onClick={HandleStart}>{IsStart?"Pause":"Resume"}</button>
     <button className="del btn" onClick={()=>DeleteTimer(id)}>Delete</button>
+    <audio src="../../public/Alarm-Clock-Short-chosic.com_.mp3"  ref={AudioRef}/>
   </div>
   
   </>)
